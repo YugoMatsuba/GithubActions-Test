@@ -6,8 +6,8 @@ import os
 issue_number = sys.argv[1]
 
 # GitHub API用の情報
-repo_owner = 'あなたのGitHubユーザー名'
-repo_name = 'あなたのリポジトリ名'
+repo_owner = 'YugoMatsuba'
+repo_name = 'GithubActions-Test'
 token = os.environ['GITHUB_TOKEN']  # GitHub Actionsにデフォルトで渡されているトークン
 
 # コメント投稿用API
