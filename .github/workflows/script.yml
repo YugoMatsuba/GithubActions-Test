@@ -20,4 +20,4 @@ jobs:
         run: pip install requests  
 
       - name: Run Python script with issue number
-        run: python issue_handler.py ${{ github.event.issue.number }}
+        run: python example.py ${{ github.event.issue.number }}
