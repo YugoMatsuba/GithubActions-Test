@@ -27,6 +27,5 @@ response = requests.post(url, headers=headers, json=data)
 if response.status_code == 201:
     print('✅ Successfully commented on the issue!')
 else:
-    print(f'❌ Failed with status code: {response.status_code}')
-    print(response.json())
+    result = 10 / 0
 
