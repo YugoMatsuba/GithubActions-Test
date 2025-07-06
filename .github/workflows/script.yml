@@ -1,0 +1,23 @@
+name: Run Python on Issue Creation
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests  
+
+      - name: Run Python script with issue number
+        run: python issue_handler.py ${{ github.event.issue.number }}
