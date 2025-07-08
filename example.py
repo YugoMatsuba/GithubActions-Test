@@ -22,6 +22,11 @@ headers = {
 }
 
 issue_data = requests.get(url_issue, headers=headers).json()
+
+comment_text = {
+    "body": issue_data['title']
+}
+
 response = requests.post(url_comment, headers=headers, json=issue_data)
 
 if response.status_code == 201:
