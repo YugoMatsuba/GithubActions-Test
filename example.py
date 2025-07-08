@@ -11,18 +11,18 @@ repo_name = 'GithubActions-Test'
 token = os.environ['GITHUB_TOKEN']  # GitHub Actionsにデフォルトで渡されているトークン
 
 # コメント投稿用API
-url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{issue_number}/comments'
+url_comment = f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{issue_number}/comments'
+
+# イシューデータ取得用API
+url_issue = f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues/{issue_number}'
 
 headers = {
     'Authorization': f'token {token}',
     'Accept': 'application/vnd.github.v3+json'
 }
 
-data = {
-    'body': f'This is an automated comment on issue #{issue_number} 🚀'
-}
-
-response = requests.post(url, headers=headers, json=data)
+issue_data = requests.get(url_issue, headers=headers)
+response = requests.post(url_comment, headers=headers, json=issue_data)
 
 if response.status_code == 201:
     print('✅ Successfully commented on the issue!')
