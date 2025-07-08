@@ -21,7 +21,7 @@ headers = {
     'Accept': 'application/vnd.github.v3+json'
 }
 
-issue_data = requests.get(url_issue, headers=headers)
+issue_data = requests.get(url_issue, headers=headers).json()
 response = requests.post(url_comment, headers=headers, json=issue_data)
 
 if response.status_code == 201:
