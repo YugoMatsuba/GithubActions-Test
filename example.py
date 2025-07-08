@@ -27,7 +27,7 @@ comment_text = {
     "body": issue_data['title']
 }
 
-response = requests.post(url_comment, headers=headers, json=issue_data)
+response = requests.post(url_comment, headers=headers, json=comment_text)
 
 if response.status_code == 201:
     print('✅ Successfully commented on the issue!')
